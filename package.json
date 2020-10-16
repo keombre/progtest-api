@@ -1,0 +1,12 @@
+{
+  "name": "progtest-api",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Common progtest API",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}
