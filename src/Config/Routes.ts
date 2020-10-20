@@ -1,7 +1,7 @@
 class Routes {
-    readonly Base: string;
+    static readonly Base: string = "https://ptmock.localhost/";
 
-    constructor() {
-        this.Base = "https://ptmock.localhost/";
-    }
+    static readonly Shibboleth: string = Routes.Base + "/shibboleth-fit.php";
+    static readonly Login: string = Routes.Base + "/?X=Login&amp;Lg=1";
+
 }

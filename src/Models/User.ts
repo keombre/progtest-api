@@ -1,20 +1,15 @@
 interface User {
-    Username: string;
-    SignedIn: boolean;
+    readonly Username: string;
 
-    CurrentSemester: Semester;
-    Semesters: Array<Semester>;
-
-    Login(): boolean;
-    Login(username:string, password:string, option: SignInOptions): boolean;
-    Logout(): boolean;
+    CurrentSemester(): Semester;
+    Semesters(): Array<Semester>;
 }
 
-enum SignInOptions {
-    CTU_FIT,
-    CTU_FEL,
-    SiliconHill_Password,
-    Other,
-    VSB_FEI,
-    Montererry
+enum University {
+    CTU_FEL = 1,
+    CTU_FIT = 2,
+    SiliconHill = 3,
+    VSB_FEI = 4,
+    Montererry = 5,
+    Other = 6,
 }

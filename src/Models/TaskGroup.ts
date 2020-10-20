@@ -3,7 +3,8 @@ interface TaskGroupBase<T> {
     Name: string;
     OpenDate: Date;
     CloseDate: Date;
-    Tasks: Array<T>
+    IsOpen: boolean;
+    Tasks: () => Array<T>
 }
 
 enum TaskGroupAssign {
