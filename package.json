@@ -2,7 +2,7 @@
   "name": "progtest-api",
   "version": "0.0.1",
   "description": "Common progtest API",
-  "main": "index.js",
+  "main": "src/Program.ts",
   "author": "",
   "repository": {
     "type": "git",
