@@ -66,5 +66,14 @@
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
     "noEmitOnError": true,
     "watch": true
-  }
+  },
+  "include": [
+    "src/decs.d.ts"
+  ],
+  "ts-node": {
+    "files": true
+  },
+  "files": [
+    "src/Program.ts"
+  ],
 }

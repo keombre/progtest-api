@@ -1,8 +1,9 @@
+import { CookieJar } from "tough-cookie";
 import { Semester } from ".";
 
 export interface User {
     readonly Username: string;
-    readonly SessionID: string;
+    readonly Cookies: CookieJar;
 
     CurrentSemester(): Semester;
     Semesters(): Array<Semester>;
