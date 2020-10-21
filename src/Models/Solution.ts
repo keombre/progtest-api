@@ -1,3 +1,3 @@
-interface Solution {
+export interface Solution {
     
 }

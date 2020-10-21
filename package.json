@@ -1,12 +1,20 @@
 {
   "name": "progtest-api",
-  "type": "module",
   "version": "0.0.1",
   "description": "Common progtest API",
   "main": "index.js",
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keombre/progtest-api.git"
+  },
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "@types/node": "^14.14.0",
+    "@types/node-fetch": "^2.5.7"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
   }
 }

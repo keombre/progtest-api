@@ -1,4 +1,6 @@
-interface AssignmentGroup {
+import { ExtraPoint, KNTest, TaskGroup } from ".";
+
+export interface AssignmentGroup {
     Id: number;
     Name: string;
 

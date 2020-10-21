@@ -1,11 +1,14 @@
-interface User {
+import { Semester } from ".";
+
+export interface User {
     readonly Username: string;
+    readonly SessionID: string;
 
     CurrentSemester(): Semester;
     Semesters(): Array<Semester>;
 }
 
-enum University {
+export enum University {
     CTU_FEL = 1,
     CTU_FIT = 2,
     SiliconHill = 3,

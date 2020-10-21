@@ -1,4 +1,6 @@
-interface Task {
+import { Solution } from ".";
+
+export interface Task {
     Id: number;
     Name: string;
 
