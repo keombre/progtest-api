@@ -1,6 +1,7 @@
 import nodeFetch, { Response } from "node-fetch";
 import { URL } from "url";
 import FormData = require("form-data");
+import { DOMParser } from "xmldom";
 import { CookieJar } from "fetch-cookie";
 
 export class API {
@@ -31,6 +32,11 @@ export class API {
         return ret;
     }
 
+    public static async ParseHTML(resp: Response): Promise<Document> {
+        const text = await resp.text();
+        return new DOMParser().parseFromString(text, 'text/html');
+    }
+
     public static GetUsername(doc: Document): string | undefined {
         const title = doc.documentElement.getElementsByTagName("title")[0].firstChild?.nodeValue;
         if (title == undefined)
@@ -38,5 +44,12 @@ export class API {
         if (!title.includes('@progtest.fit.cvut.cz'))
             return undefined;
         return title.substring(0, title.indexOf('@'));
+    }
+
+    public static IsLogin(doc: Document): boolean {
+        const title = doc.documentElement.getElementsByTagName("title")[0].firstChild?.nodeValue;
+        if (title == undefined)
+            return true;
+        return !title.includes('@');
     }
 }

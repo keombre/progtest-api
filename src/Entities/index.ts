@@ -1,2 +1,2 @@
-export * from "./SemesterEntity"
-export * from "./UserEntity"
+export * from "./UserEntity";
+export * from "./SubjectEntity";

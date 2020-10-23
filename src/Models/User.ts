@@ -1,12 +1,11 @@
 import { CookieJar } from "tough-cookie";
-import { Semester } from ".";
+import { Subject } from ".";
 
 export interface User {
     readonly Username: string;
     readonly Cookies: CookieJar;
 
-    CurrentSemester(): Semester;
-    Semesters(): Array<Semester>;
+    Semesters(): Promise<Map<string, Array<Subject>>>;
 }
 
 export enum University {
