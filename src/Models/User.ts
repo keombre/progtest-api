@@ -1,9 +1,7 @@
-import { CookieJar } from "tough-cookie";
 import { Subject } from ".";
 
 export interface User {
     readonly Username: string;
-    readonly Cookies: CookieJar;
 
     Semesters(): Promise<Map<string, Array<Subject>>>;
 }

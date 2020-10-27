@@ -1,8 +1,7 @@
 import { API } from ".";
 import { University, User } from "../Models";
 import { Routes } from "../Config";
-import { UserEntity } from "../Entities";
-import { CookieJar } from "tough-cookie";
+import { CredentialsEntity, UserEntity } from "../Entities";
 
 export class Auth {
     public static async Login() : Promise<User>;
@@ -10,14 +9,15 @@ export class Auth {
 
     public static async Login(username?: string, password?: string, uni?: University): Promise<User | undefined> {
         if (username && password && uni) {
-            const jar = new CookieJar();
+            const cred = new CredentialsEntity();
+
             const resp = await API.Post(Routes.Login, new Map([
                 ['UID_UNIVERSITY', uni.toString()],
                 ['USERNAME', username],
                 ['PASSWORD', password],
                 ['Login', 'Login'],
                 ['lang', '?X=Main&Lg=1']
-            ]), jar);
+            ]), cred);
 
             const params = API.GetParams(resp);
             if (!params.has('X') || params.get('X') != 'Main')
@@ -28,7 +28,7 @@ export class Auth {
             if (uname == undefined)
                 return undefined;
 
-            return new UserEntity(uname, jar);
+            return new UserEntity(uname, cred);
         }
         throw new Error("Shibboleth sign-in is not currently supported");
     }

@@ -8,4 +8,5 @@ export class Routes {
     static readonly Main: string = Routes.MainBase + "?X=Main";
 
     static readonly Subject: (id: number) => string = id => Routes.MainBase + "?X=Course&Cou=" + id;
+    static readonly SubjectOverview: (id: number) => string = id => Routes.MainBase + "?X=CourseOverview&Cou=" + id;
 }

@@ -2,16 +2,16 @@ import nodeFetch, { Response } from "node-fetch";
 import { URL } from "url";
 import FormData = require("form-data");
 import { DOMParser } from "xmldom";
-import { CookieJar } from "fetch-cookie";
+import { Credentials } from "../Models";
 
 export class API {
-    public static async Get(uri: string, jar: CookieJar): Promise<Response> {
-        const fetch = require('fetch-cookie/node-fetch')(nodeFetch, jar);
+    public static async Get(uri: string, cred: Credentials): Promise<Response> {
+        const fetch = require('fetch-cookie/node-fetch')(nodeFetch, cred.Cookies);
         return await fetch(uri);
     }
 
-    public static async Post(uri: string, data: Map<string, string>, jar: CookieJar): Promise<Response> {
-        const fetch = require('fetch-cookie/node-fetch')(nodeFetch, jar);
+    public static async Post(uri: string, data: Map<string, string>, cred: Credentials): Promise<Response> {
+        const fetch = require('fetch-cookie/node-fetch')(nodeFetch, cred.Cookies);
 
         const fd = new FormData();
         data.forEach((val, key) => fd.append(key, val));
